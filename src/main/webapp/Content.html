@@ -1,9 +1,13 @@
+<script src="ContentController.js"></script>
+<div class=container>
+<div class="row" align="left"
+	ng-repeat="notice in notices">
+	<div class="well text-left ">
+	<h5>Subject:<small ng-bind="notice.subject"></small></h5>
+	<hr>
+	<p ng-bind="notice.comment"></p>
 
-<div class="jumbotron text-center" align="left" >
-    <h1>The Homey Page</h1>
-    <p>This page demonstrates <span class="text-danger">nested</span> views.</p>    
+	</div>
+	
 </div>
-
-<div align="right">
-<button name="POST" class="POST" >POST</button>
 </div>

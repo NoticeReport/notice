@@ -4,39 +4,106 @@
 <html>
 <head>
 
-    <!-- CSS (load bootstrap)-->
-    <link rel="stylesheet" href="bootstrap.css"> 
-    <style>
-        .navbar { border-radius:0; }
-    </style>
+<!-- CSS (load bootstrap)-->
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- Optional theme -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<style>
+.navbar {
+	border-radius: 0;
+}
+</style>
 
-    <!-- JS (load angular, ui-router, and our custom js file) -->
-    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-    <script src="app.js"></script>
+<!-- JS (load angular, ui-router, and our custom js file) -->
+<script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script src="app.js"></script>
+<script src="ContentController.js"></script>
 </head>
 
 <!-- apply our angular app to our site -->
-<body ng-app="routerApp">
+<body ng-app="routerApp" ng-controller="MainAppCtrl">
+	<header>
 
-<!-- NAVIGATION -->
-<nav class="navbar navbar-inverse" role="navigation">
-    <div class="navbar-header">
-       
-    </div>
-    <ul class="nav navbar-nav">
-        <li><a ui-sref="home"><h3>Home</h3></a></li>
-        <li><a ui-sref="about"><h3>Home2</h3></a></li>
-    </ul>
-</nav>
+		<!-- NAVIGATION -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<buton type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Options" aria-expanded="false"> 
+					<span class="icon-bar"></span> 
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					</buton>
+					 <a class="navbar-brand">Notice Board</a>
+				</div>
 
-<!-- MAIN CONTENT -->
-<div class="container">
+				<div class="collapse navbar-collapse" id="Options">
+					<ul class="nav navbar-nav navbar-right">
+						<li><a ui-sref="home">Home</a></li>
+						<li><a ui-sref="home1">Home2</a></li>
+						<a href="" class="btn btn-sm navbar-btn" data-toggle="modal" data-target="#MailPost">MAIL</a>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-    <!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
-    <div ui-view></div>
+	</header>
 
-</div>
 
+	<!-- MAIN CONTENT-->
+	<div class="container">
+
+		<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+		<div ui-view></div>
+	</div>
+	
+	
+	
+	
+	
+	
+	<!-- POST MODEL -->
+	<div class="modal" id="MailPost">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+				<button type=button class="close" data-dismiss="modal">&times;</button>
+					<h3 class="modal-title">New Post</h3>
+				</div>
+				<div class="modal-body"></div>
+			</div>
+		
+		</div>
+	
+	
+	</div>
+	
+	
+	<!-- 
+
+	<div id="mailBox" ng-show="showMail"
+		style="border: 1px solid red; width: 700px; height: 500px; float: right; margin-top: -40%">
+		<h1>hello am from mail popup</h1>
+		<h2>
+			subject:<input type="text" ng-model="inputsub">
+		</h2>
+		<h4>
+			<textarea ng-model="inputTextarea"></textarea>
+		</h4>
+		<input type="button" value="post" style="float: right"
+			ng-click="postmail()">
+	</div>
+	
+	 -->
+	
+	
+	<!-- Latest compiled and minified JavaScript -->
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
 </body>
 </html>
