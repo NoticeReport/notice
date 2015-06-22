@@ -1,13 +1,13 @@
 <script src="ContentController.js"></script>
-<div class=container>
+
 <div class="row" align="left"
 	ng-repeat="notice in notices">
 	<div class="well text-left ">
-	<h5>Subject:<small ng-bind="notice.subject"></small></h5>
+	<h4 class="text-primary">Subject: <small class="text-default" ng-bind="notice.subject"></small></h4>
 	<hr>
 	<p ng-bind="notice.comment"></p>
-
+	
+	
 	</div>
 	
-</div>
 </div>
