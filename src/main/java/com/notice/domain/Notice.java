@@ -7,7 +7,8 @@ public class Notice {
 	private String location;
 	private String subject;
 	private String comment;
-	private Timestamp createdDate;
+	private String createdDate;
+	private String Signature;
 	public String getLocation() {
 		return location;
 	}
@@ -26,11 +27,17 @@ public class Notice {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public Timestamp getCreatedDate() {
+	public String getCreatedDate() {
 		return createdDate;
 	}
-	public void setCreatedDate(Timestamp createdDate) {
+	public void setCreatedDate(String createdDate) {
 		this.createdDate = createdDate;
+	}
+	public String getSignature() {
+		return Signature;
+	}
+	public void setSignature(String signature) {
+		Signature = signature;
 	}
 	
 	
