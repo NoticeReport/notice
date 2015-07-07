@@ -6,86 +6,152 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width , initial-scale=1.0">
 <!-- CSS (load bootstrap)-->
-<!-- Latest compiled and minified CSS -->
- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<!-- Optional theme -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="css/bootstrap.css">
+<link rel="stylesheet" href="css/bootstrap-theme.css">
+<link rel="stylesheet" href="css/common.css">
 <style>
 .navbar {
 	border-radius: 0;
+	padding-right: 15px;
+	padding-left: 15px;
+}
+
+[contentEditable=true]:empty:not (:focus ):before {
+	content: attr(data-text)
 }
 </style>
-
+<!-- angular code base -- https://developers.google.com/speed/libraries/#angularjs -->
 <!-- JS (load angular, ui-router, and our custom js file) -->
-<script src="http://code.angularjs.org/1.2.13/angular.js"></script>
-<script
-	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.2/angular-sanitize.min.js"></script>
+<script	src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
 
 <!-- Latest compiled and minified JavaScript -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script
+	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 <!-- application specific -->
 <script src="app.js"></script>
 <script src="ContentController.js"></script>
+<script>
+    $(document).ready(function(){
+        $('.container').css('padding-top', $('#topnavbar').height() + 15);
+        $('.container').css('padding-bottom', $('.footer').height() + 15);  
+        $(window).resize(function(){
+            $('.container').css('padding-top', $('#topnavbar').height() + 15);
+            $('.container').css('padding-bottom', $('.footer').height() + 15);
+        });
+    });
+</script>
 </head>
 
 <!-- apply our angular app to our site -->
 <body ng-app="routerApp" ng-controller="MainAppCtrl">
+	<div id="MailPost" class="modal" role="dialog">
+		<div class="modal-dialog">
 
-	
-	
-	<header>
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h3 class="modal-title">New Post: </h3>
+					<div class="dropdown">
+						<button id="dLabel" data-toggle="dropdown"
+							class="btn btn-category btn-xs" data-target="#" >
+							
+							{{selectedItem}}<span class="caret"></span>
+							
+						</button>
+						<ul class="dropdown-menu multi-level" role="menu"
+							aria-labelledby="dropdownMenu">
+							<li><h5  class="dropdown-text" ng-click="dropboxitemselected('home')">home</h5></li>
+							<li><h5  class="dropdown-text" ng-click="dropboxitemselected('classifieds')">classified</h5></li>
+							<li class="divider"></li>
+							<li class="dropdown-submenu"><h5 class="dropdown-text" tabindex="-1" href="#">Groups</h5>
+								<ul class="dropdown-menu">
+									<li><h5 class="dropdown-text" tabindex="-1" ng-click="dropboxitemselected('creative writing')">creative writing</h5></li>
+									<li><h5 class="dropdown-text"   ng-click="dropboxitemselected('cooking')">cooking</5></li>
+								</ul></li>
+						</ul>
+					</div>
+					
+				</div>
+				<div class="modal-body">
+
+
+					<input class="postSubject" type="text" ng-model="subject"
+						placeholder="Subject"> </input>
+
+					<textarea class="postContent" data-ng-model="comment">
+						</textarea>
+
+				</div>
+				<div class="modal-footer">
+
+					<input class="postSignature" type="text" ng-model="signature"
+						placeholder="Signature"> </input>
+					<button type="button" class="btn btn-primary" data-dismiss="modal"
+						ng-click="postmail()">post</button>
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+	<header class="clear">
 
 		<!-- NAVIGATION -->
-		<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+		<nav class="navbar navbar-inverse navbar-fixed-top" id="topnavbar"
+			role="navigation">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<buton type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#Options" aria-expanded="false"> 
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					</buton>
-					 <a class="navbar-brand">Notice Board</a>
+					<buton type="button" class="navbar-toggle collapsed"
+						data-toggle="collapse" data-target="#Options"
+						aria-expanded="false"> <span class="icon-bar"></span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></buton>
+					<a class="navbar-brand">Notice Board</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="Options">
 					<ul class="nav navbar-nav navbar-right">
 						<li><a ui-sref="home">Home</a></li>
-						<li><a ui-sref="home1">Home2</a></li>
-						<li><a href="#MailPost" data-toggle="modal"><span class="glyphicon glyphicon-pencil"></span>MAIL</a></li>
+						<li><a ui-sref="classifieds">Classifieds</a></li>
+
+						<li class="dropdown"><a data-toggle="dropdown"
+							class="dropdown-toggle">Groups <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a ui-sref="creative writing">creative writing</a></li>
+								<li><a ui-sref="cooking">cooking</a></li>
+							</ul></li>
+							<li><a href="#MailPost" ui-sref="#" data-toggle="modal"
+						data-backdrop="false"><span class="glyphicon glyphicon-pencil"></span>MAIL</a></li>
 					</ul>
+
+					
+					
 				</div>
 			</div>
 		</nav>
 
 	</header>
-	
+
 	<!-- MAIN CONTENT-->
 	<div class="container">
-	<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
-		<div ui-view></div>
-		
-		<!-- POST MODEL -->
-		<div id="MailPost" class="modal fade" role="dialog">
-			<div class="modal-dialog">
+		<!-- THIS IS WHERE WE WILL INJECT OUR CONTENT ============================== -->
+		<div class="view_container" ui-view></div>
 
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h3 class="modal-title">New Post</h3>
-					</div>
-					<div class="modal-body">
-						<p>Some text in the modal.</p>
-					</div>
-					<div class="modal-footer">
-					<button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="postmail()">post</button>
-					</div>
-				</div>
+		<!-- POST MODEL	 -->
 
-			</div>
-		</div>
 	</div>
+	<footer class="footer">
+		<div class="">
+			<p class="text-muted">Place sticky footer content here.</p>
+		</div>
+	</footer>
+
 </body>
 </html>

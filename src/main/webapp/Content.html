@@ -3,9 +3,11 @@
 <div class="row" align="left"
 	ng-repeat="notice in notices">
 	<div class="well text-left ">
-	<h4 class="text-primary">Subject: <small class="text-default" ng-bind="notice.subject"></small></h4>
-	<hr>
-	<p ng-bind="notice.comment"></p>
+	<h4 class="text-primary">Subject: <small class="text-default" ng-bind="notice.subject"></small></small></h4>
+	<hr style="color:black">
+	<p ng-bind-html="notice.comment"></p>
+	<h5 class="text-warning">{{notice.signature}}                              <small class="text-right" ng-bind="notice.createdDate"></small></h5>
+	
 	
 	
 	</div>

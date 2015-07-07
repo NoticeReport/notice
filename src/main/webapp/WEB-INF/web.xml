@@ -17,6 +17,23 @@
 			org.jboss.resteasy.plugins.server.servlet.ResteasyBootstrap
 		</listener-class>
 	</listener>-->
+
+
+	<filter>
+		<filter-name>MacTokenFilter</filter-name>
+		<filter-class>com.notice.configuration.MacTokenFilter</filter-class>
+
+	</filter>
+
+	<filter-mapping>
+		<filter-name>MacTokenFilter</filter-name>
+		<url-pattern>/api/*</url-pattern>
+	</filter-mapping>
+	
+	
+	
+	
+	
  
 	<servlet>
 		<servlet-name>resteasy-servlet</servlet-name>
