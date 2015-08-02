@@ -1,0 +1,11 @@
+<div style="height: 500px">
+<h3 id="contactHeader">{{contactHeaderText}}</h3>
+<div id="contactMessageDiv" ng-show="contactMessageDivShow">
+<textarea id="contactMessage" class="contactText" data-ng-model="message" maxlength="3000" ng-focus="contactFocus()"></textarea>
+
+<h5 id="contactMail">Email Address: <input type="text" class="contactEmail" ng-model="emailId" maxlength="35"> <button class="btn btn-sm btn-primary" ng-click="postContact()">POST</button></h5>
+</div>
+
+
+
+</div>

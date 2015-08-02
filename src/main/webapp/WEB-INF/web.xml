@@ -1,5 +1,10 @@
 <web-app>
+
 <display-name>notice</display-name>
+
+  <welcome-file-list>  
+   <welcome-file>index.html</welcome-file>  
+  </welcome-file-list>  
  <!-- Auto scan REST service
 	<context-param>
 		<param-name>resteasy.scan</param-name>
@@ -10,7 +15,8 @@
 	<context-param>
 		<param-name>resteasy.servlet.mapping.prefix</param-name>
 		<param-value>/api</param-value>
-	</context-param> 
+	</context-param>
+	
  <!-- 
 	<listener>
 		<listener-class>

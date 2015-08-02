@@ -1,15 +1,34 @@
 <script src="ContentController.js"></script>
 
-<div class="row" align="left"
-	ng-repeat="notice in notices">
-	<div class="well text-left ">
-	<h4 class="text-primary">Subject: <small class="text-default" ng-bind="notice.subject"></small></small></h4>
-	<hr style="color:black">
-	<p ng-bind-html="notice.comment"></p>
-	<h5 class="text-warning">{{notice.signature}}                              <small class="text-right" ng-bind="notice.createdDate"></small></h5>
-	
-	
-	
+<div class="row" align="left" ng-repeat="notice in notices">
+	<div id="contentDiv" class="well text-left ">
+		<h4 class="text-primary">
+			Subject: <small class="text-default" ng-bind="notice.subject"></small></small>
+			<div class="btn-group close" id="optionButtonDiv">
+				<button type="button" class="btn btn-xs btn-default  dropdown-toggle"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					options <span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu">
+					<li><h5 class="dropdown-text"
+							ng-click="contentOptionSelected($event,'print')">print</h5></li>
+					<li><h5 class="dropdown-text"
+							ng-click="contentOptionSelected($event,'highlight')">highlight</h5></li>
+				</ul>
+			</div>
+
+
+
+		</h4>
+		<hr style="color: black">
+		<p ng-bind-html="notice.comment"></p>
+		<h5 class="text-warning">
+			{{notice.signature}} <small class="text-right"
+				ng-bind="notice.createdDate"></small>
+		</h5>
+
+
+
 	</div>
-	
+
 </div>

@@ -3,6 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<title>Notice Board</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width , initial-scale=1.0">
 <!-- CSS (load bootstrap)-->
@@ -34,6 +35,8 @@
 <!-- application specific -->
 <script src="app.js"></script>
 <script src="ContentController.js"></script>
+<script src="ContactController.js"></script>
+
 <script>
     $(document).ready(function(){
         $('.container').css('padding-top', $('#topnavbar').height() + 15);
@@ -44,6 +47,15 @@
         });
     });
 </script>
+<noscript>
+    <style type="text/css">      
+        #javaScriptDisable {
+            text-align: center;
+            margin-top:100px;           
+        }
+    </style>
+    <h1 id="javaScriptDisable">This application requires Javascript support. Please enable Javascript in order to view the pages.</h1>
+    </noscript>
 </head>
 
 <!-- apply our angular app to our site -->
@@ -53,14 +65,14 @@
 
 			<!-- Modal content-->
 			<div class="modal-content">
-				<div class="modal-header">
+				<div id="modelHeader" class="modal-header row">
 					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<h3 class="modal-title">New Post: </h3>
-					<div class="dropdown">
+					<h3 id="postTitle" class="modal-title col-md-3 text-left">New Post: </h3>
+					<div  id="maildropdown" class="dropdown col-md-4">
 						<button id="dLabel" data-toggle="dropdown"
 							class="btn btn-category btn-xs" data-target="#" >
 							
-							{{selectedItem}}<span class="caret"></span>
+							{{selectedItem}}<span id="dLabelcaret" class="caret"></span>
 							
 						</button>
 						<ul class="dropdown-menu multi-level" role="menu"
@@ -77,21 +89,21 @@
 					</div>
 					
 				</div>
-				<div class="modal-body">
+				<div id="modalBody" class="modal-body">
 
 
-					<input class="postSubject" type="text" ng-model="subject"
-						placeholder="Subject"> </input>
+					<input  id="postSubject" class="postSubject" type="text" ng-model="subject"
+						placeholder="Subject" maxlength="40" > </input>
 
-					<textarea class="postContent" data-ng-model="comment">
+					<textarea class="postContent" data-ng-model="comment" maxlength="3000">
 						</textarea>
 
 				</div>
-				<div class="modal-footer">
+				<div  id="modalFooter" class="modal-footer">
 
-					<input class="postSignature" type="text" ng-model="signature"
+					<input class="postSignature" type="text" ng-model="signature" maxlength="40"
 						placeholder="Signature"> </input>
-					<button type="button" class="btn btn-primary" data-dismiss="modal"
+					<button type="button" class="btn btn-primary" 
 						ng-click="postmail()">post</button>
 
 
@@ -148,8 +160,10 @@
 
 	</div>
 	<footer class="footer">
-		<div class="">
-			<p class="text-muted">Place sticky footer content here.</p>
+		<div class=" footerDiv row">
+			<h5 class=" col-md-4 footerContact" > &copy Notice Board</h5>
+<!-- 			<a  class=" col-md-4 footerContact" ui-sref="contact"> Terms&Conditions</a> -->
+			<a class=" col-md-4 footerContact" ui-sref="contact"> Contact Us</a>
 		</div>
 	</footer>
 

@@ -48,9 +48,11 @@ hr {
 /* h4 { */
 /* 	font-family: arial, sans-serif; */
 /* } */
-body{
-	font: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
-font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial, Verdana, sans-serif;
+body {
+	font: "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial, Verdana,
+		sans-serif;
+	font-family: 'Lucida Grande', 'Lucida Sans Unicode', Helvetica, Arial,
+		Verdana, sans-serif;
 }
 
 body.modal-open {
@@ -63,7 +65,15 @@ body.modal-open {
 	color: #9d9d9d;
 }
 
+#modelHeader {
+	margin: 0px !important;
+}
+
 .modal-title {
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	margin-left: 5px;
+	margin-right: 0px;
 	font-size: 16px !important;
 }
 
@@ -73,9 +83,11 @@ body.modal-open {
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, .25);
 }
 
-.close:hover, .close:focus, .close.focus {
-	opacity: 1; text-decoration : none;
-	background-color: #737373;
+.close:hover, .close:focus{
+	opacity: 1;
+	text-decoration: none;
+	/* 	background-color: #737373; */
+	color: #ffffff;
 	text-decoration: none;
 }
 
@@ -91,7 +103,7 @@ body.modal-open {
 	-ms-user-select: none;
 	user-select: none;
 	outline: 0;
-	width:100%;
+	width: 100%;
 	white-space: pre;
 }
 
@@ -112,9 +124,7 @@ body.modal-open {
 
 .postSignature {
 	min-height: 35px;
-	
 	border-style: none;
-	
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -125,61 +135,68 @@ body.modal-open {
 	width: 89%;
 }
 
-
 .dropdown-submenu {
-    position: relative;
+	position: relative;
+}
+
+#dLabel:hover, #dLabel:focus {
+	opacity: 1;
+	color: #ffffff;
+	text-decoration: none;
+	/* 	background-color: #9d9d9d; */
+/* 	border-color: transparent; */
+outline: 0px auto -webkit-focus-ring-color !important;
 }
 
 .dropdown-submenu>.dropdown-menu {
-    top: 0;
-    left: 100%;
-    margin-top: -6px;
-    margin-left: -1px;
-    -webkit-border-radius: 0 6px 6px 6px;
-    -moz-border-radius: 0 6px 6px;
-    border-radius: 0 6px 6px 6px;
+	top: 0;
+	left: 100%;
+	margin-top: -6px;
+	margin-left: -1px;
+	-webkit-border-radius: 0 6px 6px 6px;
+	-moz-border-radius: 0 6px 6px;
+	border-radius: 0 6px 6px 6px;
 }
 
 .dropdown-submenu:hover>.dropdown-menu {
-    display: block;
+	display: block;
 }
 
 .dropdown-submenu>a:after {
-    display: block;
-    content: " ";
-    float: right;
-    width: 0;
-    height: 0;
-    border-color: transparent;
-    border-style: solid;
-    border-width: 5px 0 5px 5px;
-    border-left-color: #ccc;
-    margin-top: 5px;
-    margin-right: -10px;
+	display: block;
+	content: " ";
+	float: right;
+	width: 0;
+	height: 0;
+	border-color: transparent;
+	border-style: solid;
+	border-width: 5px 0 5px 5px;
+	border-left-color: #ccc;
+	margin-top: 5px;
+	margin-right: -10px;
 }
 
 .dropdown-submenu:hover>a:after {
-    border-left-color: #e5e5e5;
+	border-left-color: #e5e5e5;
 }
 
 .dropdown-submenu.pull-left {
-    float: none;
+	float: none;
 }
 
 .dropdown-submenu.pull-left>.dropdown-menu {
-    left: -100%;
-    margin-left: 10px;
-    -webkit-border-radius: 6px 0 6px 6px;
-    -moz-border-radius: 6px 0 6px 6px;
-    border-radius: 6px 0 6px 6px;
+	left: -100%;
+	margin-left: 10px;
+	-webkit-border-radius: 6px 0 6px 6px;
+	-moz-border-radius: 6px 0 6px 6px;
+	border-radius: 6px 0 6px 6px;
 }
-
 
 .btn-category {
 	background-color: #222;
 	color: #9d9d9d;
-	border-color: #ccc;
-	width:200px;
+	/*border-color: #ccc;*/
+	width: 180px;
 }
 
 .dropdown-text {
@@ -199,5 +216,76 @@ body.modal-open {
 	background-color: #9d9d9d;
 }
 
+.btn .caret {
+	margin-left: 10px;
+}
 
+#maildropdown {
+	padding-left: 0px !important;
+	margin-left: 0px !important;
+	padding-top: 6px !important;
+	padding-right: 0px !important;
+}
 
+.btn-xs {
+	font-size: 13px;
+}
+
+.footerDiv {
+	margin-left: 10px;
+	margin-top: 13px;
+}
+
+.errorField {
+	border: 1px solid red !important;
+}
+
+#postTitle:hover, #postTitle:focus {
+	opacity: 1;
+	color: #ffffff;
+	text-decoration: none;
+}
+.contactText{
+	border: 1px solid;
+	min-height: 250px;
+	width: 100%;
+}
+
+.contactEmail{
+	width:250px;
+	border-top:none;
+	border-right:none;
+	border-left:none;
+	border-bottom: 1px solid;
+	padding-right: 10px;
+	padding-left: 10px;
+}
+.contactEmail:hover, .contactEmail:focus{
+	outline: none !important;
+	outline: 5px auto -webkit-focus-ring-color;
+	outline-offset: -2px;
+}
+.footerContact
+{
+	 color: #222;
+	 font-size: 14px;
+	 text-decoration: none;
+}
+.footerContact:hover,.footerContact.focus
+{
+	 
+	 font-size: 14px;
+	 text-decoration: none;
+}
+
+.btn-brown {
+	color: #fff;
+	background-color: #222;
+	border-color: #2e6da4;
+}
+
+.contenthighlight{
+	 background-color: #222 !important;
+	 color: red;
+	 text-decoration: underline;
+}
